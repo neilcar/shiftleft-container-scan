@@ -89,6 +89,7 @@ jobs:
           IMAGE_NAME: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}"
         run: |
           set +e
+          echo ${IMAGE_NAME}
           apt update && apt install -y curl
           curl -sfL 'https://raw.githubusercontent.com/orcasecurity/orca-cli/main/install.sh' | bash
           orca-cli -p ${PROJECT_KEY} image scan ${IMAGE_NAME}
