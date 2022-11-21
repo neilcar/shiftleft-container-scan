@@ -43,11 +43,8 @@ jobs:
           
       - uses: aevea/action-kaniko@master
         with:
-          push: false
-          tags: ${{ steps.metadata.outputs.tags }}
-          labels: ${{ steps.metadata.outputs.labels }}
           cache: false
-          extra_args: "--tar-path image.tar"
+          extra_args: "--no-push --tar-path image.tar"
           
       # Run Orca CLI against the previously created container image
       - name: Orca CLI - Security Scanning
