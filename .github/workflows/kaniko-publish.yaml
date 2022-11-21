@@ -47,7 +47,7 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           cache: false
-          kaniko-args: "--tar-path image.tar"
+          kaniko-args: "--tar-path /kaniko/action/output/image.tar"
 
           
       # Run Orca CLI against the previously created container image
