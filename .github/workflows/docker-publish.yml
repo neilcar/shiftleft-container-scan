@@ -85,10 +85,10 @@ jobs:
         with:
           image: ${{ steps.meta.outputs.tags }}
           report-format: sarif
-          report-name: super-report
+          report-name: super-report.sarif
           failure-threshold: fatal
           exit-code: 1
-          dockle-version: 0.3.16
+          dockle-version: 0.4.11
           accept-extensions: pem
 
       - name: Upload SARIF file
