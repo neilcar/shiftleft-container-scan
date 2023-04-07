@@ -83,7 +83,7 @@ jobs:
       - name: Run Dockle
         uses: erzz/dockle-action@v1
         with:
-          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
           report-format: sarif
           report-name: super-report
           failure-threshold: fatal
