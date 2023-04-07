@@ -80,15 +80,3 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           
-      # Run Orca CLI against the previously created container image
-      - name: Orca CLI - Security Scanning
-        env:
-          ORCA_SECURITY_API_TOKEN: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          PROJECT_KEY: "default"
-          IMAGE_NAME: "${{ steps.meta.outputs.tags }}"
-        run: |
-          set +e
-          echo ${IMAGE_NAME}
-          apt update && apt install -y curl
-          curl -sfL 'https://raw.githubusercontent.com/orcasecurity/orca-cli/main/install.sh' | bash
-          orca-cli -p ${PROJECT_KEY} image scan ${IMAGE_NAME} -f comma-separated
