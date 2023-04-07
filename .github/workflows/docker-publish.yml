@@ -89,7 +89,7 @@ jobs:
         with:
           image: ${{ steps.meta.outputs.tags }}
           report-format: sarif
-          report-name: super-report.sarif
+          report-name: super-report
           failure-threshold: fatal
           exit-code: 1
           dockle-version: 0.4.11
